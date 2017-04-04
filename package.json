@@ -1,15 +1,15 @@
 {
-  "name": "micro-req",
+  "name": "puny-req",
   "version": "1.0.0",
   "description": "Tiny & Lightweight promise based HTTP(S) request library for node",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tiaanduplessis/micro-req.git"
+    "url": "https://github.com/tiaanduplessis/puny-req.git"
   },
-  "homepage": "https://github.com/tiaanduplessis/micro-req",
-  "bugs": "https://github.com/tiaanduplessis/micro-req/issues",
+  "homepage": "https://github.com/tiaanduplessis/puny-req",
+  "bugs": "https://github.com/tiaanduplessis/puny-req/issues",
   "author": {
     "name": "Tiaan",
     "email": "tiaanduplessis@hotmail.com",
@@ -29,7 +29,7 @@
     "http",
     "https",
     "request",
-    "micro-req"
+    "puny-req"
   ],
   "dependencies": {
     "follow-redirects": "^1.2.3",

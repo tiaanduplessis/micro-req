@@ -3,6 +3,6 @@
 
 const req = require('./')
 
-test('micro req', () => {
+test('puny req', () => {
   expect(req).toBeDefined()
 })
