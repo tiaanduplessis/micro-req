@@ -1,6 +1,6 @@
 {
   "name": "puny-req",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiny & Lightweight promise based HTTP(S) request library for node",
   "license": "MIT",
   "main": "index.js",
