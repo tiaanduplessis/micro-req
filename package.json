@@ -1,7 +1,7 @@
 {
   "name": "puny-req",
   "version": "1.0.1",
-  "description": "Tiny & Lightweight promise based HTTP(S) request library for node",
+  "description": "Tiny and lightweight promise based HTTP(S) request library (70 sloc)",
   "license": "MIT",
   "main": "index.js",
   "repository": {
@@ -19,24 +19,19 @@
     "start": "npm run dev",
     "pretest": "npm run lint:fix",
     "test": "jest --env=node",
-    "test:watch": "npm test -- --watch",
-    "coverage": "npm test -- --coverage",
+    "test:cov": "npm test -- --coverage",
     "lint": "standard --verbose",
     "lint:fix": "standard --fix --verbose",
     "precommit": "npm test"
   },
-  "keywords": [
-    "http",
-    "https",
-    "request",
-    "puny-req"
-  ],
+  "keywords": ["http", "https", "request", "puny-req"],
   "dependencies": {
+    "@tiaanduplessis/json": "^1.0.0",
     "follow-redirects": "^1.2.3",
     "qs": "^6.4.0"
   },
   "devDependencies": {
-    "husky": "^0.13.4",
+    "husky": "^0.14.3",
     "jest": "^20.0.4",
     "standard": "^10.0.2"
   },
