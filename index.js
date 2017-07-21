@@ -8,11 +8,11 @@ const https = require('follow-redirects').https
 const qs = require('qs')
 const JSON = require('@tiaanduplessis/json')
 
-const isString = function isString(val = '') {
+const isString = function isString (val = '') {
   return typeof val === 'string'
 }
 
-const req = function req(args) {
+const req = function req (args) {
   const promise = new Promise((resolve, reject) => {
     assert(isString(args) || args.url, 'Missing URL')
 
