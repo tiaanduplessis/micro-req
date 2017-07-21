@@ -1,6 +1,6 @@
 <h1 align="center">📡 req</h1>
 <div align="center">
-  <strong>Tiny and lightweight promise based HTTP(S) request library (70 sloc)</strong>
+  <strong>📡 Lightweight promise based HTTP(S) request library</strong>
 </div>
 <br>
 <div align="center">
@@ -49,7 +49,6 @@
   <li><a href="#install">Install</a></li>
   <li><a href="#usage">Usage</a></li>
   <li><a href="#api">API</a></li>
-  <li><a href="#cli">CLI</a></li>
   <li><a href="#contribute">Contribute</a></li>
   <li><a href="#license">License</a></li>
 </details>
@@ -102,10 +101,6 @@ Module exports a single function that returns a promise. It accepts a url string
 ```
 
 The promise resolves with the response object. The body is parsed to a object if possible.
-
-## CLI
-
-The CLI is currently a work in progress.
 
 ## Contribute
 
