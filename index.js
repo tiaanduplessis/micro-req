@@ -1,41 +1,49 @@
 'use strict'
 
+const url = require('url')
+const assert = require('assert')
+
 const http = require('follow-redirects').http
 const https = require('follow-redirects').https
 const qs = require('qs')
-const url = require('url')
+const JSON = require('@tiaanduplessis/json')
 
-module.exports = function req (args) {
-  return new Promise((resolve, reject) => {
-    if (typeof args !== 'string' && !args.url) {
-      return reject(new Error('Missing URL'))
-    }
+const isString = function isString(val = '') {
+  return typeof val === 'string'
+}
 
-    if (typeof args === 'string') {
-      args = {url: args}
+const req = function req(args) {
+  const promise = new Promise((resolve, reject) => {
+    assert(isString(args) || args.url, 'Missing URL')
+
+    if (isString(args)) {
+      args = { url: args }
     }
 
     const parsedUrl = url.parse(args.url)
     const protocol = parsedUrl.protocol === 'http:' ? http : https
-    const options = Object.assign({
-      hostname: parsedUrl.hostname,
-      port: Number(parsedUrl.port || parsedUrl.protocol === 'http:' ? '80' : '443'),
-      method: args.form || args.json ? 'POST' : 'GET',
-      headers: {},
-      path: parsedUrl.path,
-      auth: parsedUrl.auth || null,
-      encoding: 'utf-8'
-    }, args)
+    const options = Object.assign(
+      {
+        hostname: parsedUrl.hostname,
+        port: Number(parsedUrl.port || parsedUrl.protocol === 'http:' ? '80' : '443'),
+        method: args.form || args.json ? 'POST' : 'GET',
+        headers: {},
+        path: parsedUrl.path,
+        auth: parsedUrl.auth || null,
+        encoding: 'utf-8'
+      },
+      args
+    )
 
     if (options.form) {
-      options.data = typeof options.form === 'string' ? options.form : qs.stringify(options.form)
+      options.data = isString(options.form) ? options.form : qs.stringify(options.form)
       options.headers = Object.assign(options.headers, {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': Buffer.byteLength(options.data)
       })
     }
 
-    if (options.json && Object.prototype.toString.call(options.json) === '[object Object]') {
+    if (options.json) {
       options.data = JSON.stringify(options.json)
       options.headers = Object.assign(options.headers, {
         'Content-Type': 'application/json',
@@ -43,24 +51,25 @@ module.exports = function req (args) {
       })
     }
 
-    const req = protocol.request(options, (res) => {
+    const req = protocol.request(options, res => {
       res.setEncoding(options.encoding)
 
       res.body = ''
-      res.on('data', (chunk) => {
+      res.on('data', chunk => {
         res.body += chunk
       })
       res.on('end', () => {
-        try {
-          res.body = JSON.parse(res.body)
+        JSON.parse(res.body, (error, json) => {
+          if (!error) {
+            res.body = json
+          }
+
           resolve(res)
-        } catch (e) {
-          resolve(res)
-        }
+        })
       })
     })
 
-    req.on('error', (error) => reject(error))
+    req.on('error', error => reject(error))
     req.on('timeout', () => {
       req.abort()
       reject(new Error('Request timed out'))
@@ -70,4 +79,8 @@ module.exports = function req (args) {
 
     req.end()
   })
+
+  return promise
 }
+
+module.exports = req
