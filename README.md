@@ -1,6 +1,6 @@
-<h1 align="center">📡 puny-req</h1>
+<h1 align="center">📡 req</h1>
 <div align="center">
-  <strong>Tiny and lightweight promise based HTTP(S) request library for node</strong>
+  <strong>Tiny and lightweight promise based HTTP(S) request library (70 sloc)</strong>
 </div>
 <br>
 <div align="center">
@@ -16,23 +16,14 @@
   <a href="https://travis-ci.org/tiaanduplessis/puny-req">
     <img src="https://img.shields.io/travis/tiaanduplessis/puny-req.svg?style=flat-square" alt="Travis Build" />
   </a>
-  <a href="https://github.com/RichardLitt/standard-readme)">
-    <img src="https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square" alt="Standard Readme" />
-  </a>
   <a href="https://badge.fury.io/gh/tiaanduplessis%2Fpuny-req">
     <img src="https://badge.fury.io/gh/tiaanduplessis%2Fpuny-req.svg?style=flat-square" alt="GitHub version" />
-  </a>
-  <a href="https://dependencyci.com/github/tiaanduplessis/puny-req">
-    <img src="https://dependencyci.com/github/tiaanduplessis/puny-req/badge?style=flat-square" alt="Dependency CI" />
   </a>
   <a href="https://github.com/tiaanduplessis/puny-req/blob/master/LICENSE">
     <img src="https://img.shields.io/npm/l/puny-req.svg?style=flat-square" alt="License" />
   </a>
   <a href="http://makeapullrequest.com">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs" />
-  </a>
-  <a href="https://www.paypal.me/tiaanduplessis/1">
-    <img src="https://img.shields.io/badge/$-support-green.svg?style=flat-square" alt="Donate" />
   </a>
 </div>
 <br>
