@@ -1,6 +1,6 @@
 {
   "name": "puny-req",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tiny and lightweight promise based HTTP(S) request library (70 sloc)",
   "license": "MIT",
   "main": "index.js",
@@ -24,7 +24,12 @@
     "lint:fix": "standard --fix --verbose",
     "precommit": "npm test"
   },
-  "keywords": ["http", "https", "request", "puny-req"],
+  "keywords": [
+    "http",
+    "https",
+    "request",
+    "puny-req"
+  ],
   "dependencies": {
     "@tiaanduplessis/json": "^1.0.0",
     "follow-redirects": "^1.2.3",
