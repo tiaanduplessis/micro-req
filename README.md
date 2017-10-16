@@ -55,6 +55,8 @@
 
 ## Install
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tiaanduplessis/puny-req.svg)](https://greenkeeper.io/)
+
 ```sh
 $ npm install --save puny-req
 # OR
